@@ -1,0 +1,7 @@
+{
+  "name": "projeto_crud_ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
