@@ -30,11 +30,28 @@ export class HomePage {
     }
     console.log('Conta não localizada');
     alert('Conta não localizada');
+  }
 
+  public existeConta(): boolean {
+    for (let i: number = 0; i < this.rep.length; i++) {
+      let c: Conta = this.rep[i];
+      if (c.getNumero() == this.numero) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public inserirConta(): void {
 
+        let c2: Conta = new Conta(this.numero, this.nome, this.saldo);
+        if (!this.existeConta()) {
+          this.rep.push(c2);
+          this.limpa_campos();
+          console.log('conta inserida com sucesso.');
+          return;
+        }
+        alert('Conta já existente na base');
 
   }
   public alterarConta(): void {}
