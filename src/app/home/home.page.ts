@@ -13,7 +13,6 @@ export class HomePage {
   saldo: number = 0;
 
   constructor() {
-
     this.limpa_campos();
     // conta de teste.
     this.c2 = new Conta('10', 'Beatriz Maria Ferreira', 30000);
@@ -21,26 +20,39 @@ export class HomePage {
   }
 
   public consultarConta(): void {
-
-
-    let encontrado: boolean = false;
     for (let i: number = 0; i < this.rep.length; i++) {
       let c: Conta = this.rep[i];
       if (c.getNumero() == this.numero) {
         this.nome = c.getNome();
         this.saldo = c.getSaldo();
-        encontrado = true;
         return;
       }
     }
-    if (!encontrado) {
-      console.log('Conta não localizada');
-      alert('Conta não localizada');
-      this.limpa_campos();
+    console.log('Conta não localizada');
+    alert('Conta não localizada');
+
+  }
+
+  public existeConta(): boolean {
+    for (let i: number = 0; i < this.rep.length; i++) {
+      let c: Conta = this.rep[i];
+      if (c.getNumero() == this.numero) {
+        return true;
+      }
     }
+    return false;
   }
 
   public inserirConta(): void {
+    let c2: Conta = new Conta(this.numero, this.nome, this.saldo);
+    if (!this.existeConta()) {
+        this.rep.push(c2);
+        this.limpa_campos();
+        console.log('conta inserida com sucesso.');
+        return;
+    }
+   alert('Conta já existente na base');
+
 
   }
   public alterarConta(): void {}
