@@ -1,20 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <h1> Tabajara Bank</h1>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col><h3>Dados da conta:</h3></ion-col>
+       </ion-row>
+       <ion-row>
+            <ion-col>
+      		<ion-item>
+        		<!-- stacked faz com que o label fique em cima e a caixa de texto fique embaixo. -->
+        		<h2><ion-label color="dark" position="stacked" >número conta: 		</ion-label></h2>
+        		<ion-input [(ngModel)]="numero"></ion-input>
+      		</ion-item>
+          </ion-col>
+    </ion-row>
+<ion-row>
+    <ion-col>
+      <ion-item>
+        <h2><ion-label color="dark" position="stacked">nome cliente: </ion-label></h2>
+        <ion-input [(ngModel)]="nome"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <h2><ion-label color="dark" position="stacked">saldo: </ion-label></h2>
+        <ion-input [(ngModel)]="saldo"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+<ion-row>
+    <ion-col>
+       <!-- adicione expand="block" a tag ion-button para o botão ocupar toda a linha.-->
+      <ion-button color="secondary" (click)="inserirConta()"> Inserir</ion-button>
+      <ion-button color="secondary" (click)="consultarConta()" > Consultar</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    </ion-col>
+    <ion-col>
+       <!-- adicione expand="block" a tag ion-button para o botão ocupar toda a linha.-->
+      <ion-button color="secondary" (click)="alterarConta()"> Alterar</ion-button>
+      <ion-button color="secondary" (click)="removerConta()"> Remover</ion-button>
+
+    </ion-col>
+  </ion-row>
+
+  </ion-grid>
+
 </ion-content>
