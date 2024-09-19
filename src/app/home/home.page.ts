@@ -54,7 +54,20 @@ export class HomePage {
         alert('Conta já existente na base');
 
   }
-  public alterarConta(): void {}
+  public alterarConta(): void {
+     for (let i: number = 0; i < this.rep.length; i++) {
+       let c: Conta = this.rep[i];
+       if (c.getNumero() == this.numero) {
+         this.rep[i].setNome(this.nome);
+         this.rep[i].setSaldo(this.saldo);
+         alert('Conta alterada');
+         this.limpa_campos();
+         return;
+       }
+     }
+     console.log('Conta não foi alterada, pois não foi localizada');
+     alert('Conta não foi alterada, pois não foi localizada');
+  }
 
   public removerConta(): void {}
 
